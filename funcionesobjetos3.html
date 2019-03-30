@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+</head>
+<body>
+
+    <button id="sumar"></button>
+
+    <script>
+        var botonSuma = document.getElementById("sumar");
+      
+        const operaciones= {
+            titulo : "Estan las operaciones",
+            suma : function(a,b){
+                console.log("suma");
+                //return a+b;
+            },
+            resta: function(a,b){
+                return a-b;
+            }
+        }
+        const taller = {
+            puntos: [{
+                titulo: "Sumar",
+                sum: function(a,b) {
+                     return a+b  }
+            }]
+        }
+        botonSuma.addEventListener('click',operaciones.suma)
+        
+    </script>
+</body>
+</html>
