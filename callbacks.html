@@ -8,6 +8,7 @@
   </head>
   <body>
     <h1>Callbacks 😁</h1>
+    <div id="contenedor"></div>
     <script>
       function getP(url) {
         return new Promise(function(resolve, reject) {
@@ -41,7 +42,9 @@
         var arrUrl = [
           "https://swapi.co/api/people/1",
           "https://swapi.co/api/people/2",
-          "https://swapi.co/api/people/1"
+          "https://swapi.co/api/people/3",
+          "https://swapi.co/api/people/4",
+          "https://swapi.co/api/people/5"
         ];
         var promesas = arrUrl.map(function(url) {
           return getP(url);
@@ -49,7 +52,19 @@
         try {
           var personajes = await Promise.all(promesas);
           console.log(personajes);
+          var conte = document.getElementById("contenedor");
+          conte.innerHTML = "";
+          var auxHtlm = "";
+          personajes.forEach(function(p, i) {
+            auxHtlm += `<div style="background: red;" onclick="haceralgo('${
+              p.name
+            }')"><h1>${p.name}</h1> 🧠</div>`;
+          });
+          conte.innerHTML = auxHtlm;
         } catch (error) {}
+      }
+      function haceralgo(par) {
+        console.log(par);
       }
     </script>
   </body>
