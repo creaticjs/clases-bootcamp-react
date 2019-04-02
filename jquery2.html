@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      .contenedores {
+        background: blanchedalmond;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>jQuery 🎮</h1>
+    <img
+      src="https://cdn-images-1.medium.com/max/1200/0*eKlcOAKWba_SodrA."
+      alt=""
+    />
+    <a href="">Link de pagina de X</a>
+    <div style="background: red;" id="contenedor">
+      <p>Hola</p>
+    </div>
+    <div class="contenedores">
+      <p>Contenedor 2</p>
+    </div>
+    <ul>
+      <li data-id="co" data-moneda="peso">Colombia</li>
+      <li data-id="jp" data-moneda="yen">Japon</li>
+      <li data-id="cr" data-moneda="yen2">Corea</li>
+    </ul>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.js"
+      integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $(function() {
+        //Ready
+        $("ul li").click(function(e) {
+          //console.log(e.target);
+          //console.log($(this).data("moneda"));
+          console.log($(this).text());
+          $(this).css({ color: "red" });
+        });
+      });
+
+      function llamadoAjax() {
+        $.ajax({
+          url: "https://swapi.co/api/people/1",
+          type: "GET",
+          dataType: "json"
+        })
+          .done(function(data) {
+            console.log(data);
+          })
+          .fail(function(error) {
+            console.error(error);
+          })
+          .always(function() {
+            console.log("🍉");
+          });
+      }
+
+      function llamadoFetch() {
+        fetch("https://swapi.co/api/people/1")
+          .then(function(response) {
+            return response.json();
+          })
+          .then(function(data) {
+            console.log(data);
+          })
+          .catch(function(error) {
+            console.log(error);
+          });
+      }
+    </script>
+  </body>
+</html>
