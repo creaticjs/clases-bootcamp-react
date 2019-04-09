@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="bootcamp">
+      <h1>{{ titulo }}</h1>
+      <label for="">Nombre</label>
+      <input type="text" v-model="usuario.nombre" />
+      <label for="">Email</label>
+      <input type="text" v-model="usuario.email" />
+      <h2>Nombre {{ usuario.nombre }}</h2>
+
+      <label for="">Clone</label>
+      <input type="text" :value="usuario.nombre" />
+
+      <div v-if="usuario.nombre=='carlos'">
+        <p>Sos!! Carlos</p>
+      </div>
+      <button @click="changever()">Ver</button>
+      <div v-if="ver" style="background: red">
+        <p>Soy Visible 👁</p>
+      </div>
+    </div>
+    {{ titulo }}
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      var bootcamp = new Vue({
+        el: "#bootcamp",
+        data: {
+          titulo: "Clase 2",
+          equipos: [
+            { id: 1, nombre: "Nacional", Copas: 20 },
+            { id: 2, nombre: "America", Copas: 1 },
+            { id: 3, nombre: "Tolima", Copas: 4 }
+          ],
+          equipoSel: {},
+          usuario: {
+            nombre: "",
+            email: ""
+          },
+          ver: false
+        },
+        methods: {
+          alerta: function(title) {
+            alert(title);
+          },
+          getequipo: function(equipo) {
+            //alert(equipo.nombre);
+            this.equipoSel = equipo;
+          },
+          changever: function() {
+            this.ver = !this.ver;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

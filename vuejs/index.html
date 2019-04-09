@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="bootcamp">
+      {{ titulo }}
+      <button @click="alerta(titulo)">Boton alerta</button>
+      <div v-for="equipo in equipos">
+        <p>{{ equipo.nombre }}</p>
+        <button @click="getequipo(equipo)">{{ equipo.nombre }}</button>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      var bootcamp = new Vue({
+        el: "#bootcamp",
+        data: {
+          titulo: "Somos unos duros 🕵️‍",
+          equipos: [
+            { id: 1, nombre: "Nacional", Copas: 20 },
+            { id: 2, nombre: "America", Copas: 1 },
+            { id: 3, nombre: "Tolima", Copas: 4 }
+          ],
+          equipoSel: {}
+        },
+        methods: {
+          alerta: function(title) {
+            alert(title);
+          },
+          getequipo: function(equipo) {
+            //alert(equipo.nombre);
+            this.equipoSel = equipo;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
