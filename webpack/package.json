@@ -1,0 +1,21 @@
+{
+  "name": "webpackinicio",
+  "version": "1.0.0",
+  "description": "Creatic Bootcamp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack index.js --output bundle.js --mode development",
+    "produccion": "echo \"Modo produccion\""
+  },
+  "author": "@carlosmolanos",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.0"
+  },
+  "dependencies": {
+    "jquery": "^3.4.0",
+    "linq": "^3.2.0"
+  }
+}
