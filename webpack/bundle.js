@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var oper = __webpack_require__(/*! ./operaciones */ \"./operaciones.js\");\nvar $ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\nvar linq = __webpack_require__(/*! linq */ \"./node_modules/linq/linq.js\");\n\nvar datos = linq.range(1, 10).toArray();\n\nconsole.log(datos);\n\n\n//# sourceURL=webpack:///./index.js?");
+eval("var oper = __webpack_require__(/*! ./operaciones */ \"./operaciones.js\");\nvar $ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\nvar linq = __webpack_require__(/*! linq */ \"./node_modules/linq/linq.js\");\n\nvar datos = linq.range(1, 10).toArray();\n\nconsole.log(datos);\nalert(\"hola\");\n\n\n//# sourceURL=webpack:///./index.js?");
 
 /***/ }),
 

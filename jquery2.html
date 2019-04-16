@@ -12,6 +12,11 @@
     </style>
   </head>
   <body>
+    <iframe
+      src="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-9999"
+      frameborder="0"
+    ></iframe>
+    <div id="contentHack"></div>
     <h1>jQuery 🎮</h1>
     <img
       src="https://cdn-images-1.medium.com/max/1200/0*eKlcOAKWba_SodrA."
@@ -47,12 +52,13 @@
 
       function llamadoAjax() {
         $.ajax({
-          url: "https://swapi.co/api/people/1",
+          url: "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-9999",
           type: "GET",
-          dataType: "json"
+          dataType: "html"
         })
           .done(function(data) {
             console.log(data);
+            $("#contentHack").html(data);
           })
           .fail(function(error) {
             console.error(error);
@@ -63,12 +69,13 @@
       }
 
       function llamadoFetch() {
-        fetch("https://swapi.co/api/people/1")
+        fetch("https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-9999")
           .then(function(response) {
-            return response.json();
+            return response;
           })
           .then(function(data) {
             console.log(data);
+            $("#contentHack").html(data);
           })
           .catch(function(error) {
             console.log(error);

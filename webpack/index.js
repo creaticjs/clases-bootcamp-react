@@ -5,3 +5,4 @@ var linq = require("linq");
 var datos = linq.range(1, 10).toArray();
 
 console.log(datos);
+alert("hola");
