@@ -1,0 +1,7 @@
+.usuario {
+    background: linear-gradient(#2193b0, #6dd5ed);
+    color: white;
+    display: inline-block;
+    margin: 5px;
+    padding: 5px;
+}
