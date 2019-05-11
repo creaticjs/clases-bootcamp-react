@@ -3,6 +3,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import Usuario from "./components/Usuario";
 function App() {
+  state
   return (
     <div className="App">
       <h1>Hola Mundo 🤮</h1>
