@@ -9,7 +9,7 @@ class Productos extends Component {
   render() {
     const { productos } = this.props;
     return (
-      <div>
+      <div className="container">
         <h1>Listado de productos</h1>
         {productos.map((producto, index) => {
           return <Producto key={index} producto={producto} />;

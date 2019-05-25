@@ -1,28 +1,15 @@
-import { MOSTRAR_PRODUCTOS } from "../actions/types";
+import { MOSTRAR_PRODUCTOS, GUARDAR_PRODUCTO } from "../actions/types";
 
 const estadoInicial = {
-  productos: [
-    {
-      id: 0,
-      nombre: "panela",
-      precio: 2000
-    },
-    {
-      id: 1,
-      nombre: "arroz",
-      precio: 3000
-    },
-    {
-      id: 2,
-      nombre: "azucar",
-      precio: 2000
-    }
-  ]
+  productos: []
 };
 export default function(state = estadoInicial, action) {
   switch (action.type) {
     case MOSTRAR_PRODUCTOS:
-      return state;
+      return { ...state, productos: action.payload };
+      break;
+    case GUARDAR_PRODUCTO:
+      return { ...state, productos: [...state.productos, action.payload] };
       break;
     default:
       return state;
