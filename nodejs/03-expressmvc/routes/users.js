@@ -8,4 +8,6 @@ module.exports = app => {
   app.get("/usuarios", usersController.users);
   app.get("/usuario/:id", usersController.user);
   app.post("/usuario", usersController.createUser);
+  app.post("/updateusuario", usersController.updateUser);
+  app.post("/deleteusuario", usersController.deleteUser);
 };

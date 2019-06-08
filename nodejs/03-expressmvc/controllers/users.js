@@ -1,9 +1,15 @@
 const dbjson = require("../db/dbjson");
+const db = require("../db/coneccionMsql");
+
 module.exports = {
   users: (req, res) => {
     console.log("Get usuarios");
-
-    res.send(dbjson);
+    db.query("SELECT * FROM users", (error, result, fields) => {
+      if (error) {
+        res.status(502).send(error);
+      }
+      res.send(result);
+    });
   },
   user: (req, res) => {
     console.log("Un solo usuario");
@@ -12,9 +18,40 @@ module.exports = {
     res.send(dbjson[id]);
   },
   createUser: (req, res) => {
-    const datosUser = req.body;
-    console.log("Creando el usuario", datosUser);
+    const { nombre, rol } = req.body;
 
-    res.send(datosUser);
+    db.query(
+      "INSERT INTO users (id,nombre,rol) VALUES (NULL, ?,?)",
+      [nombre, rol],
+      (error, result, fields) => {
+        if (error) {
+          res.status(502).send(error);
+        }
+        res.send(result);
+      }
+    );
+  },
+  updateUser: (req, res) => {
+    const { id, nombre, rol } = req.body;
+    const sql = `UPDATE users SET nombre = ${db.escape(
+      nombre
+    )} WHERE id= ${db.escape(id)}`;
+
+    db.query(sql, (error, result, fields) => {
+      if (error) {
+        res.status(502).send(error);
+      }
+      res.send(result);
+    });
+  },
+  deleteUser: (req, res) => {
+    const { id } = req.body;
+    const sql = `DELETE FROM users WHERE id = ${db.escape(id)}`;
+    db.query(sql, (error, result, fields) => {
+      if (error) {
+        res.status(502).send(error);
+      }
+      res.send(result);
+    });
   }
 };
