@@ -5,4 +5,6 @@ module.exports = app => {
     res.send("Mi servidor en Express y mongo 🤮");
   });
   app.get("/usuarios", userController.allUsers);
+  app.post("/usuario", userController.createUser);
+  app.post("/updateusuario", userController.updateUser);
 };
