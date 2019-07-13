@@ -6,7 +6,14 @@ class Header extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.blanco}>{this.props.titulo} </Text>
-        <TextInput style={styles.addTarea} placeholder="Ingresa la tarea" />
+        <TextInput
+          onChangeText={this.props.eventoTextAdd}
+          style={styles.addTarea}
+          placeholder="Ingresa la tarea"
+          onSubmitEditing={() => {
+            this.props.agregar();
+          }}
+        />
       </View>
     );
   }

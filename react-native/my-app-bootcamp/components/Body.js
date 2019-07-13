@@ -1,14 +1,23 @@
 import React, { Component } from "react";
 import { StyleSheet, View, Text, FlatList } from "react-native";
-
+import Tarea from "./Tarea";
 class Body extends Component {
   render() {
     return (
       <View style={styles.container}>
         <FlatList
-          data={[{ nombre: "Jugar Xbox" }, { nombre: "Comer" }]}
-          renderItem={({ item }) => {
-            return <Text>{item.nombre}</Text>;
+          data={this.props.tareas}
+          renderItem={elemento => {
+            return (
+              <Tarea
+                tareaU={elemento.item}
+                key={elemento.item.key}
+                tarea={elemento.item.nombre}
+                eliminar={() => {
+                  this.props.eliminar(elemento.item.key);
+                }}
+              />
+            );
           }}
         />
       </View>
